@@ -1,0 +1,19 @@
+{
+  "name": "markov-bot",
+  "version": "0.0.0",
+  "description": "Markov chatbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Muller <ryan@shittyappfactory.com>",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "babel": "^5.8.3",
+    "co": "^4.6.0",
+    "node-uuid": "^1.4.3",
+    "pouchdb": "^3.6.0",
+    "q-io": "^1.13.1",
+    "slack-client": "^1.4.1"
+  }
+}
