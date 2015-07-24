@@ -29,6 +29,7 @@ function tokenize(message) {
   while (message.length) {
     const [consumed, word, token]
       =  findWord(message)
+      || findEmoji(message)
       || findCodeQuotes(message, isCodeBlock, isCodeString)
       || findNonWord(message)
       || takeWhatYouCanGet(message);
@@ -88,6 +89,8 @@ function tokenize(message) {
     tokens.push({token: SENTENCE_END});
   }
 
+  console.log(tokens);
+
   return tokens;
 }
 
@@ -101,6 +104,12 @@ const NON_WORD_RE = /^[^\w-']+/;
 
 function findNonWord(message) {
   return check(NON_WORD_RE, message);
+}
+
+const EMOJI_RE = /^:[a-z0-9+_]:/;
+
+function findEmoji(message) {
+  return check(EMOJI_RE, message);
 }
 
 function findCodeQuotes(message, isCodeBlock, isCodeString) {
